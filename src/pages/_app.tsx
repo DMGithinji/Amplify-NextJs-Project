@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import theme from "./theme";
+import theme from "../theme";
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
