@@ -19,7 +19,7 @@ export default function PostPreview({ post }: Props): ReactElement {
       <Grid
         container
         direction="row"
-        justify="flex-start"
+        justifyContent="flex-start"
         alignItems="flex-start"
         wrap="nowrap"
         spacing={3}
