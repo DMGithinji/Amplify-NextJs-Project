@@ -64,7 +64,7 @@ export default function PostPreview({ post }: Props): ReactElement {
         </Grid>
 
         {/* Image */}
-        {postImageUrl && (
+        {post.image && postImageUrl && (
           <Grid item>
             <Image src={postImageUrl} height={540} width={980} layout="intrinsic" />
           </Grid>

@@ -27,14 +27,13 @@ export default function Home() {
     fetchPosts();
   }, []);
 
-  console.log("User: ", user);
-  console.log("Posts: ", posts);
-
   return (
     <Container maxWidth="md">
-      {posts.map((post) => (
-        <PostPreview key={post.id} post={post} />
-      ))}
+      {posts
+        .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
+        .map((post) => (
+          <PostPreview key={post.id} post={post} />
+        ))}
     </Container>
   );
 }
