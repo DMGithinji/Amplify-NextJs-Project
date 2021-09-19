@@ -1,6 +1,8 @@
 import { Box, ButtonBase, Grid, IconButton, Paper, Typography } from "@material-ui/core";
 import React, { ReactElement } from "react";
 
+import Image from "next/image";
+
 import { Post } from "../API";
 import { useRouter } from "next/router";
 import { useUser } from "../context/AuthContext";
@@ -39,6 +41,14 @@ export default function PostPreview({ post }: Props): ReactElement {
             </Grid>
           </ButtonBase>
         </Grid>
+
+        {/* Image */}
+        {!post.image && (
+          <Grid item>
+            <Image src={"/vercel.svg"} height={150} width={380} layout="intrinsic" />
+          </Grid>
+        )}
+
         <Grid item>
           <Typography variant="body1">{post.content}</Typography>
         </Grid>
@@ -47,7 +57,7 @@ export default function PostPreview({ post }: Props): ReactElement {
           {/* Metadata */}
           <Grid container sm={12} style={{ padding: "0 10px" }}>
             <Typography variant="body1">
-              by <b>{post.owner}</b>, <b>{formatDatePosted(post.createdAt)} hours ago</b>
+              by <b>{post.owner}</b>, {formatDatePosted(post.createdAt)} hours ago
             </Typography>
           </Grid>
 
