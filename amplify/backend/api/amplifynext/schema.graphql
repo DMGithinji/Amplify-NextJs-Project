@@ -14,8 +14,8 @@ type Post
   title: String!
   content: String!
   image: String
-  upvotes: Int!
-  downvotes: Int!
+  upvotes: Int
+  downvotes: Int
   comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
 }
 

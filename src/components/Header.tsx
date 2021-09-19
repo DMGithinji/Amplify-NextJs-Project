@@ -104,7 +104,7 @@ export default function Header() {
           )}
           {!user && (
             <>
-              <Button variant="outlined" onClick={() => router.push(`/login`)}>
+              <Button variant="outlined" color="primary" onClick={() => router.push(`/login`)}>
                 Login
               </Button>
               <Button variant="contained" color="primary" onClick={() => router.push(`/signup`)}>
