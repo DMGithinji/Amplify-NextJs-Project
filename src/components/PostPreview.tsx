@@ -1,7 +1,8 @@
 import { Box, ButtonBase, Grid, IconButton, Paper, Typography } from "@material-ui/core";
-import React, { ReactElement } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 
 import Image from "next/image";
+import { Storage } from "aws-amplify";
 
 import { Post } from "../API";
 import { useRouter } from "next/router";
@@ -19,6 +20,26 @@ interface Props {
 export default function PostPreview({ post }: Props): ReactElement {
   const router = useRouter();
   const { user } = useUser();
+  const [postImageUrl, setPostImage] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    async function getImageFromStorage() {
+      try {
+        const signedURL = await Storage.get(post.image); // get key from Storage.list
+        if (signedURL) {
+          setPostImage(signedURL as string);
+        } else {
+          setPostImage(null);
+        }
+        console.log("Found Image:", signedURL);
+        // @ts-ignore
+      } catch (error) {
+        console.log("No image found.");
+      }
+    }
+
+    getImageFromStorage();
+  }, []);
 
   console.log(post);
 
@@ -43,9 +64,9 @@ export default function PostPreview({ post }: Props): ReactElement {
         </Grid>
 
         {/* Image */}
-        {post.image && (
+        {postImageUrl && (
           <Grid item>
-            <Image src={"/vercel.svg"} height={150} width={380} layout="intrinsic" />
+            <Image src={postImageUrl} height={540} width={980} layout="intrinsic" />
           </Grid>
         )}
 
