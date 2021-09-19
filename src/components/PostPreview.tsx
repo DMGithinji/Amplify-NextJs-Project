@@ -43,7 +43,7 @@ export default function PostPreview({ post }: Props): ReactElement {
         </Grid>
 
         {/* Image */}
-        {!post.image && (
+        {post.image && (
           <Grid item>
             <Image src={"/vercel.svg"} height={150} width={380} layout="intrinsic" />
           </Grid>
@@ -55,14 +55,14 @@ export default function PostPreview({ post }: Props): ReactElement {
 
         <Grid container direction="row" justifyContent="space-between" alignItems="center" wrap="nowrap">
           {/* Metadata */}
-          <Grid container sm={12} style={{ padding: "0 10px" }}>
+          <Grid container justifyContent="flex-start" style={{ padding: "0 10px" }}>
             <Typography variant="body1">
               by <b>{post.owner}</b>, {formatDatePosted(post.createdAt)} hours ago
             </Typography>
           </Grid>
 
           {/* Upvote / votes / downvote */}
-          <Grid container sm={12} justifyContent="flex-end">
+          <Grid container justifyContent="flex-end">
             <Box display="flex" alignItems="center" style={{ paddingRight: "20px" }}>
               <IconButton color="inherit" style={{ padding: "20px" }}>
                 <ThumbUp />

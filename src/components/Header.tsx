@@ -2,10 +2,11 @@ import React from "react";
 
 import { useRouter } from "next/router";
 import { Auth } from "aws-amplify";
+import Link from "next/link";
 
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
-import { Tooltip } from "@material-ui/core";
+import { Grid, Tooltip } from "@material-ui/core";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
@@ -55,21 +56,34 @@ export default function Header() {
     <div className={classes.root}>
       <AppBar position="static" color="inherit">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-            onClick={() => router.push(`/`)}
-          >
-            <AlbumIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Opinions
-          </Typography>
+          <Link href="/">
+            <Grid
+              container
+              alignItems="center"
+              justifyContent="flex-start"
+              style={{
+                cursor: "pointer",
+              }}
+            >
+              <IconButton
+                edge="start"
+                className={classes.menuButton}
+                color="inherit"
+                aria-label="menu"
+                style={{
+                  marginRight: 0,
+                }}
+              >
+                <AlbumIcon />
+              </IconButton>
+              <Typography variant="h6" className={classes.title}>
+                Opinions
+              </Typography>
+            </Grid>
+          </Link>
           {user && (
-            <div>
-              <Tooltip title="Create Post">
+            <Grid container justifyContent="flex-end">
+              <Tooltip title="Post an Opinion">
                 <IconButton onClick={() => router.push(`/create`)} aria-label="create" color="inherit">
                   <AddIcon />
                 </IconButton>
@@ -100,7 +114,7 @@ export default function Header() {
               >
                 <MenuItem onClick={() => signUserOut()}>Sign Out</MenuItem>
               </Menu>
-            </div>
+            </Grid>
           )}
           {!user && (
             <>

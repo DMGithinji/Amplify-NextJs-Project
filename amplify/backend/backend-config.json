@@ -47,5 +47,29 @@
         }
       }
     }
+  },
+  "function": {
+    "S3Triggerb64e1afe": {
+      "service": "Lambda",
+      "providerPlugin": "awscloudformation",
+      "build": true
+    }
+  },
+  "storage": {
+    "amplifyNextImages": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "S3Triggerb64e1afe",
+          "attributes": [
+            "Name",
+            "Arn",
+            "LambdaExecutionRole"
+          ]
+        }
+      ]
+    }
   }
 }
