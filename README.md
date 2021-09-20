@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Amplify-Next Project
+
+This is a simple fullstack application i'm building using [AWS Amplify](https://docs.amplify.aws/), [Next.js](https://nextjs.org/), and [React Material UI](https://next.material-ui.com/getting-started/installation/), to learn more how to efficiently work with these technologies.
 
 ## Getting Started
 
@@ -12,20 +14,19 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Learn More About AWS Amplify
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+To learn more about AWS Amplify, take a look at the following resources:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- [AWS Amplify Documentation](https://docs.amplify.aws/s) - learn about AWS Amplify features and how it can help you speed up development of fullstack scalable applications.
+- [Full Stack Serverless [Book]](https://learning.oreilly.com/library/view/full-stack-serverless/9781492059882/) - a practical guide to the process of building full stack applications using React, AWS, GraphQL, and AWS Amplify.
 
-## Learn More
+## Learn More about Next
 
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel
 
